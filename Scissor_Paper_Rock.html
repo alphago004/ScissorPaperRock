@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml">
+
+
+<head>
+
+<title> Scissor Paper Rock game</title>
+
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="DESCRIPTION_HERE" />
+<meta name="keywords" content="KEYWORDS,SEPARATED,BY,COMMAS,HERE" />
+<meta name="author" content="SAGAR_BHETUWAL" />
+<meta name="revised" content="10/21/2021" />
+
+<head>
+
+<script type="text/JavaScript">
+<!--
+
+/*  to capitalize the first letter of the word I (player) chose. */
+function capitalizeFirstLetter(string) 
+{
+  return string.charAt(0).toUpperCase() + string.slice(1);   // makes the first letter capital and concatenetes it with 
+														     // the rest of the letters in the word
+}
+
+
+//playGame function (it is what executes after the form is submitted by the user)
+function playGame()
+{
+	// storing all the options in an array
+	var options = ["Rock", "Paper", "Scissors"];
+
+	// using random function from Math object to randomly generate the numeric values from 0 to 2 
+	var computerChoice = options[Math.floor((Math.random()*9)/3)];
+	var myChoice = myForm.myChoice.value;  
+	
+
+
+	document.open();
+
+	document.writeln("<div>");
+
+	document.writeln("You chose " + capitalizeFirstLetter(myChoice) + "!<br /><br />");
+
+	document.writeln("I chose " + computerChoice + "!<br /><br />");
+
+
+	// condition to check if the computer chooses Rock	
+	if (computerChoice == "Rock")
+	{
+		if (myChoice == "Rock")   // condition to check if I chose Rock
+		{
+			document.write("This game is a draw!!");   // game is drawed if both of us choose the same thing
+		}
+
+		else if (myChoice == "Paper")  // condition to check if I choose Paper
+		{
+			document.write("You won this game!!");  // if I choose paper and computer chooses rock, computer wins the game
+		}
+
+		else             // If I chooses neither Rock nor paper (I chose Scissors)
+		{
+			document.write("I won this game!!");    // if I choose scisors and computer chose Rock, I win
+		}
+	}
+
+	else if (computerChoice == "Paper")
+	{
+		if (myChoice == "Paper")
+		{
+			document.write("This game is a draw!!");
+		}
+
+		else if (myChoice == "Scissors")
+		{
+			document.write("You won this game!!");
+		}
+
+		else
+		{
+			document.write("I won this game!!");
+		}
+	}
+
+	else
+	{
+		if (myChoice == "Scissors")
+		{
+			document.write("This game is a draw!!");
+		}
+
+		else if (myChoice == "Rock")
+		{
+			document.write("You won this game!!");
+		}
+
+		else
+		{
+			document.write("I won this game!!");
+		}
+	}
+
+
+	document.writeln("<br /><br />Please click reload/refresh to replay game!");
+
+	document.writeln("</div>");
+
+	document.close();
+}
+
+-->
+
+</script>
+
+</head>
+
+<body>
+
+<div>
+Let us play the game 
+<span style="font-style: italic">Rock, Paper, Scissors</span>  
+<br /><br />
+</div>
+
+<div>
+Please make a selection
+<br /><br />
+</div>
+
+<!-- When the user clicks the submit button in the form, web page is directed to Javascript function 'playGame()'-->
+<form id="myForm" action="JavaScript:playGame()">
+
+<div>
+<input type="radio" name="myChoice" value="Rock" checked="checked" /> Rock <br />
+<input type="radio" name="myChoice" value="Paper"  /> Paper <br />
+<input type="radio" name="myChoice" value="Scissors"  /> Scissors <br /><br />
+</div>
+
+<div>
+<input type="submit" name="Submit" />
+<input type="reset" name="Reset" />
+</div>
+
+</form>
+
+</body>
+
+</html>
